@@ -72,4 +72,18 @@ public class Assignment {
         }
     }
 
+    /** Definition of a method to check whether the marks being entered is a valid entry or not 
+     *@param marks   
+     *@return boolean true or false for entry is correct or not
+     */
+    public static boolean checkValidity(double mark) {
+        if (mark < 0 || mark > 30) {
+            // Displaying error in the input and a hint for the correct value
+            System.out.println("Entry is Invalid: Please Input a valid Number (Marks can be between 0 - 30.0)");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }
