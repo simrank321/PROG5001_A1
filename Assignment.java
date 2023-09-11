@@ -35,6 +35,9 @@ public class Assignment {
         // Displaying a Saparation
         System.out.println("--------------------------");
 
+        //In order to find Highest and Lowest Marks we need to sort the list, hence calling static sort method of this class
+        sort(marks);
+
     }
 
     /** Definition of a method to take input from user against the Assignment name and marks of the user 
@@ -83,6 +86,26 @@ public class Assignment {
             return false;
         } else {
             return true;
+        }
+    }
+
+    /** Definition of the method which sorts the given input 
+     *@param double[] marks
+     *@return null
+     */
+    public static void sort(double[] marks) {
+        System.out.println("sorting the input marks:");
+        // Declaring and initializing a temporary variable to store a value and use it to interchange when required
+        double temp = 0.0;
+        //using nested for loop to compare value and sort the array
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = i + 1; j < marks.length; j++) {
+                if (marks[i] > marks[j]) {
+                    temp = marks[i];
+                    marks[i] = marks[j];
+                    marks[j] = temp;
+                }
+            }
         }
     }
 
