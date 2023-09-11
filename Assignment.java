@@ -9,6 +9,7 @@
  */
 
 import java.util.Scanner;
+import java.lang.Math;
 
 public class Assignment {
 
@@ -41,6 +42,10 @@ public class Assignment {
         //Displaying Lowest and Marks Obtained by Students
         System.out.println("The Lowest marks is : " + marks[0]);
         System.out.println("The Highest marks is : " + marks[marks.length - 1]);
+
+        System.out.println("--------------------------");
+        //Displaying the Standard Deviation by calling the respective method
+        System.out.println("The Standard Deviation is : " + calcSD(marks));
 
     }
 
@@ -111,6 +116,37 @@ public class Assignment {
                 }
             }
         }
+    }
+
+    /** Definition of the method to calculate mean of the marks 
+    @param double[] marks
+    @return double mean
+    */
+    public static double calcMean(double[] marks) {
+        System.out.println("Calculating Mean:");
+        double sum = 0.0;
+        for (int index = 0; index < marks.length; index++) {
+            sum = sum + marks[index];
+        }
+        System.out.println("The mean is : " + sum / marks.length);
+        return sum / marks.length;
+    }
+
+    /** Method Definition for calculation of Standard Deviation of the Input Data
+     *@param double[] marks
+     *return double standardDeviation
+     */
+    public static double calcSD(double[] marks) {
+        System.out.println("Calculating Standard Deviation");
+        double mean = calcMean(marks);
+        // A local variable to store square of the sum of diff between each marks and mean
+        double temp = 0.0;
+        //Refering to java.lang.Math.pow(a,b) function get square of the diffference
+        for (double mark: marks) {
+            temp = temp + Math.pow(mark - mean, 2);
+        }
+        //Refering to java.lang.Math.sqrt() function get square root of the temp value and return the Standard Deviation
+        return Math.sqrt(temp / marks.length);
     }
 
 }
