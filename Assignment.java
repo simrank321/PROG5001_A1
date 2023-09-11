@@ -42,6 +42,9 @@ public class Assignment {
         System.out.println("The Lowest marks is : " + marks[0]);
         System.out.println("The Highest marks is : " + marks[marks.length - 1]);
 
+        //Displaying the Standard Deviation by calling the respective method
+        System.out.println("The Standard Deviation is : " + calcSD(marks));
+
     }
 
     /** Definition of a method to take input from user against the Assignment name and marks of the user 
@@ -111,6 +114,23 @@ public class Assignment {
                 }
             }
         }
+    }
+
+    /** Method Definition for calculation of Standard Deviation of the Input Data
+     *@param double[] marks
+     *return double standardDeviation
+     */
+    public static double calcSD(double[] marks) {
+        System.out.println("Calculating Standard Deviation");
+        double mean = calcMean(marks);
+        // A local variable to store square of the sum of diff between each marks and mean
+        double temp = 0.0;
+        //Refering to java.lang.Math.pow(a,b) function get square of the diffference
+        for (double mark: marks) {
+            temp = temp + Math.pow(mark - mean, 2);
+        }
+        //Refering to java.lang.Math.sqrt() function get square root of the temp value and return the Standard Deviation
+        return Math.sqrt(temp / marks.length);
     }
 
 }
