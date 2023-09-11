@@ -38,6 +38,10 @@ public class Assignment {
         //In order to find Highest and Lowest Marks we need to sort the list, hence calling static sort method of this class
         sort(marks);
 
+        //Displaying Lowest and Marks Obtained by Students
+        System.out.println("The Lowest marks is : " + marks[0]);
+        System.out.println("The Highest marks is : " + marks[marks.length - 1]);
+
     }
 
     /** Definition of a method to take input from user against the Assignment name and marks of the user 
