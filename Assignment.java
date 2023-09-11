@@ -35,6 +35,13 @@ public class Assignment {
         // Displaying a Saparation
         System.out.println("--------------------------");
 
+        //In order to find Highest and Lowest Marks we need to sort the list, hence calling static sort method of this class
+        sort(marks);
+
+        //Displaying Lowest and Marks Obtained by Students
+        System.out.println("The Lowest marks is : " + marks[0]);
+        System.out.println("The Highest marks is : " + marks[marks.length - 1]);
+
     }
 
     /** Definition of a method to take input from user against the Assignment name and marks of the user 
@@ -69,6 +76,40 @@ public class Assignment {
             // once input is validated, assigning it to the respective index
             marks[index] = number;
 
+        }
+    }
+
+    /** Definition of a method to check whether the marks being entered is a valid entry or not 
+     *@param marks   
+     *@return boolean true or false for entry is correct or not
+     */
+    public static boolean checkValidity(double mark) {
+        if (mark < 0 || mark > 30) {
+            // Displaying error in the input and a hint for the correct value
+            System.out.println("Entry is Invalid: Please Input a valid Number (Marks can be between 0 - 30.0)");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    /** Definition of the method which sorts the given input 
+     *@param double[] marks
+     *@return null
+     */
+    public static void sort(double[] marks) {
+        System.out.println("sorting the input marks:");
+        // Declaring and initializing a temporary variable to store a value and use it to interchange when required
+        double temp = 0.0;
+        //using nested for loop to compare value and sort the array
+        for (int i = 0; i < marks.length; i++) {
+            for (int j = i + 1; j < marks.length; j++) {
+                if (marks[i] > marks[j]) {
+                    temp = marks[i];
+                    marks[i] = marks[j];
+                    marks[j] = temp;
+                }
+            }
         }
     }
 
