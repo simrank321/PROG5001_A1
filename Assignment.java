@@ -116,6 +116,20 @@ public class Assignment {
         }
     }
 
+    /** Definition of the method to calculate mean of the marks 
+    @param double[] marks
+    @return double mean
+    */
+    public static double calcMean(double[] marks) {
+        System.out.println("Calculating Mean:");
+        double sum = 0.0;
+        for (int index = 0; index < marks.length; index++) {
+            sum = sum + marks[index];
+        }
+        System.out.println("The mean is : " + sum / marks.length);
+        return sum / marks.length;
+    }
+
     /** Method Definition for calculation of Standard Deviation of the Input Data
      *@param double[] marks
      *return double standardDeviation
